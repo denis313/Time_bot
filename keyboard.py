@@ -58,6 +58,7 @@ def days(month: str):
     buttons: list[KeyboardButton] = [
         KeyboardButton(text=f'{i}') for i in range(1, day_in_month[month]+1)
     ]
+
     buttons_2 = KeyboardButton(text='Stop 🛑')
     kb_builder.row(*buttons, width=4)
     return kb_builder.add(buttons_2)

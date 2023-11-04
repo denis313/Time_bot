@@ -42,9 +42,6 @@ async def main():
                       hour=0o7,
                       minute=0o0,
                       misfire_grace_time=30*60)
-    # scheduler.add_job(message_2, trigger='interval',
-    #                   minutes=2)
-    # start
     scheduler.start()
 
     # Подключение хендлеров

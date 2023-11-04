@@ -72,8 +72,8 @@ async def search_author_book(message: Message, state: FSMContext):
     data = await state.get_data()
     await state.clear()
     month = {'Январь': '01', 'Февраль': '02', 'Март': '03', 'Апрель': '04',
-              'Май': '05', 'Июнь': '06', 'Июль': '07', 'Август': '08',
-              'Сентябрь': '09', 'Октябрь': '10', 'Ноябрь': '11', 'Декабрь': '12'}
+             'Май': '05', 'Июнь': '06', 'Июль': '07', 'Август': '08',
+             'Сентябрь': '09', 'Октябрь': '10', 'Ноябрь': '11', 'Декабрь': '12'}
     dispatch_time = f'2023-{month[data["month"]]}-{data["day"]}'
     insert_data(data['subject'], dispatch_time, data['text_message'])
     await message.answer('Запись создана ✅', reply_markup=main_keyboard)
@@ -110,4 +110,3 @@ async def id_del_data(message: Message, state: FSMContext):
     await state.clear()
     del_data(data['id_data'])
     await message.answer('Запись удалена ❌', reply_markup=main_keyboard)
-

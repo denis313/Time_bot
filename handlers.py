@@ -54,7 +54,6 @@ async def search_name_book(message: Message, state: FSMContext):
 async def search_name_book(message: Message, state: FSMContext):
     await state.update_data(month=message.text)
     await state.set_state(NewData.day)
-    print(type(message.text))
     await message.answer('Выберите день отправки сообщения:',
                          reply_markup=days(month=message.text).as_markup(resize_keyboard=True))
 

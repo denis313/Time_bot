@@ -1,5 +1,4 @@
 from bd import insert_data, all_data, del_data
-from datetime import datetime
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State

@@ -54,6 +54,7 @@ def days(month: str):
     day_in_month = {'Январь': 31, 'Февраль': 28, 'Март': 31, 'Апрель': 30,
                     'Май': 31, 'Июнь': 30, 'Июль': 31, 'Август': 31,
                     'Сентябрь': 30, 'Октябрь': 31, 'Ноябрь': 30, 'Декабрь': 31}
+
     # Создаем список с кнопками
     buttons: list[KeyboardButton] = [
         KeyboardButton(text=f'{i}') for i in range(1, day_in_month[month]+1)

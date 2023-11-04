@@ -9,7 +9,7 @@ btn_all = KeyboardButton(text='Посмотреть все записи 📚')
 btn_del = KeyboardButton(text='Удалить запись ❌')
 
 main_keyboard = ReplyKeyboardMarkup(keyboard=[[btn_new], [btn_all, btn_del]],
-                                    resize_keyboard=True,)
+                                    resize_keyboard=True)
 
 
 def stop_fsm() -> ReplyKeyboardMarkup:

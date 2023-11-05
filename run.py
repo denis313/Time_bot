@@ -11,14 +11,14 @@ logger = logging.getLogger(__name__)
 
 
 async def message():
-    for data in get_data_by_timme(dispatch_time=(f'{datetime.now().date().month}-{datetime.now().date()}')):
+    for data in get_data_by_timme(dispatch_time=f'{datetime.now().date().month}-{datetime.now().date()}'):
         subject, dispatch_time, text_message = data
         await bot.send_message(chat_id=-1001851089340, text=text_message, message_thread_id=thread_exb[subject])
 
 
 async def message_2():
     # subject, dispatch_time, text_message = get_data_by_timme(dispatch_time=(str(datetime.now().date())))
-    for data in get_data_by_timme(dispatch_time=('2023-10-12')):
+    for data in get_data_by_timme(dispatch_time='2023-10-12'):
         subject, dispatch_time, text_message = data
         await bot.send_message(chat_id=-1001851089340, text=text_message, message_thread_id=thread_exb[subject])
 

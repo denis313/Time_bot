@@ -1,3 +1,4 @@
+from datetime import datetime
 from bd import insert_data, all_data, del_data
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
@@ -88,7 +89,7 @@ async def search_book(message: Message):
         await message.answer(text=f'ЗАПИСЬ №{count}\n\n'
                                   f'🆔 id_data записи: {id_book}\n'
                                   f'💡 Тема записи: {subject}\n'
-                                  f'🕓 Время записи : {dispatch_time}\n'
+                                  f'🕓 Время записи : {datetime.now().date().year}-{dispatch_time}\n'
                                   f'📖 Текст записи: {text_message}')
 
 

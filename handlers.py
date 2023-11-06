@@ -40,7 +40,8 @@ async def process_gender_press(message: Message, state: FSMContext):
 @router.message(F.text == 'Добавить новую запись ✅')
 async def search_book(message: Message, state: FSMContext):
     await state.set_state(NewData.subject)
-    await message.answer(text="В какую тему отправить сообщение:", reply_markup=thread_id())
+    await message.answer(text="В какую тему отправить сообщение:",
+                         reply_markup=thread_id().as_markup(resize_keyboard=True))
 
 
 @router.message(NewData.subject)

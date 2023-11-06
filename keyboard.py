@@ -18,20 +18,17 @@ def stop_fsm() -> ReplyKeyboardMarkup:
 
 
 def thread_id():
-    btn_1 = KeyboardButton(text='Молитвенные нужды')
-    btn_2 = KeyboardButton(text='Наставление на день')
-    btn_3 = KeyboardButton(text='Объявления')
-    btn_4 = KeyboardButton(text='Дни рождения')
-    btn_5 = KeyboardButton(text='Кабинеты')
-    btn_6 = KeyboardButton(text='Записи собраний')
-    btn_7 = KeyboardButton(text='Волонтёры')
-    btn_8 = KeyboardButton(text='Жизнь церкви')
-    btn_9 = KeyboardButton(text='Расписание служений')
+    kb_builder = ReplyKeyboardBuilder()
 
-    return ReplyKeyboardMarkup(keyboard=[[btn_1, btn_2, btn_3],
-                                         [btn_4, btn_5, btn_6],
-                                         [btn_7, btn_8, btn_9]],
-                               resize_keyboard=True)
+    # Создаем список с кнопками
+    buttons: list[KeyboardButton] = [
+        KeyboardButton(text=i) for i in ['Молитвенные нужды', 'Наставления на день', 'Объявления', 'Дни рождения',
+                                         'Кабинеты', 'Записи собрания', 'Волонтеры', 'Жизнь церкви',
+                                         'Расписание служений']
+    ]
+    kb_builder.row(*buttons, width=3)
+
+    return kb_builder
 
 
 def months():
@@ -45,6 +42,7 @@ def months():
     ]
     buttons_2 = KeyboardButton(text='Stop 🛑')
     kb_builder.row(*buttons, width=4)
+
     return kb_builder.add(buttons_2)
 
 

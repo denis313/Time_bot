@@ -1,6 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
+
 '''   
         Создание обьект основной клавиатуры Пользователя и кнопок для основной клавиатуры Пользователя
 '''
@@ -12,8 +13,11 @@ main_keyboard = ReplyKeyboardMarkup(keyboard=[[btn_new], [btn_all, btn_del]],
                                     resize_keyboard=True)
 
 
+stop_button = KeyboardButton(text='Stop 🛑')
+
+
 def stop_fsm() -> ReplyKeyboardMarkup:
-    return ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Stop 🛑')]],
+    return ReplyKeyboardMarkup(keyboard=[[stop_button]],
                                resize_keyboard=True)
 
 
@@ -28,7 +32,7 @@ def thread_id():
     ]
     kb_builder.row(*buttons, width=3)
 
-    return kb_builder
+    return kb_builder.row(stop_button)
 
 
 def months():
@@ -40,10 +44,10 @@ def months():
                                          'Май', 'Июнь', 'Июль', 'Август',
                                          'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
     ]
-    buttons_2 = KeyboardButton(text='Stop 🛑')
+
     kb_builder.row(*buttons, width=4)
 
-    return kb_builder.add(buttons_2)
+    return kb_builder.row(stop_button)
 
 
 def days(month: str):
@@ -58,6 +62,5 @@ def days(month: str):
         KeyboardButton(text=f'{i}') for i in range(1, day_in_month[month]+1)
     ]
 
-    buttons_2 = KeyboardButton(text='Stop 🛑')
     kb_builder.row(*buttons, width=4)
-    return kb_builder.add(buttons_2)
+    return kb_builder.row(stop_button)
